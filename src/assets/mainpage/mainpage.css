@@ -114,6 +114,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
     outline: none;
   }
+
+  .itemsList {
+    margin-left: 20px;
+  }
   
   #go1 {
     padding: 10px 20px;

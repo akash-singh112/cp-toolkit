@@ -13,7 +13,7 @@ function Footer() {
           </div>
           <div className='social-links'>
             <p style={{color:'green'}}>Privacy Policy</p>
-            <a className='atags bee' href="#privacy">Link to Notice</a>
+            <a className='atags bee' href="https://github.com/akash-singh112/cp-toolkit/blob/main/privacyNotice.md">Link to Notice</a>
           </div>
           <p>Made with ❤️ by Akash</p>
         </footer>

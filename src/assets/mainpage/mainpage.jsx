@@ -107,7 +107,7 @@ export function MainPage() {
           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       </header>
       <div className='heroTopic' style={{color:'black'}}>Select your use case ✨</div>
-      <ul>
+      <ul className='itemsList'>
         <li><a className='atags' href='/fact'>Factorization-related problems</a></li>
         <li id='special'>
           <a id='gcd_id' className='atags' href='#'>GCD/LCM</a>

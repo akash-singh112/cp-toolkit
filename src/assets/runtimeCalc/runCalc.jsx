@@ -67,6 +67,7 @@ export function RunTimeCalculator (){
         e.preventDefault();
 
         setIsLoading(true);
+        setUploadSuccess(false);
 
         try {
             const res = await getExecutionTime(codeText,inputText);
@@ -142,8 +143,8 @@ export function RunTimeCalculator (){
             <br />
             {isLoading && (
                 <div style={{ marginTop: '10px', marginLeft: '20px' }}>
-                <p id="processing">Processing...</p>
-                <div className="spinner1"></div>
+                    <p id="processing">Processing...</p>
+                    <div className="spinner1"></div>
                 </div>
             )}
             {uploadSuccess && (
