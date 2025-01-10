@@ -1,6 +1,6 @@
 # Competitive Programming Toolkit
 
-A powerful toolkit built for competitive programmers to enhance their workflow and improve problem-solving efficiency. This website is a comprehensive resource, providing a streamlined and intuitive environment for competitive programming.
+A powerful toolkit built for competitive programmers to enhance their workflow and improve problem-solving efficiency during time-constrained programming contests. This website is a comprehensive resource, providing a streamlined and intuitive environment for competitive programming.
 
 ## Features:
 
@@ -99,4 +99,4 @@ We welcome contributions from anyone! If you want to contribute, please follow t
 
 ## License
 
-This project is licensed under the MIT License - see the [https://github.com/akash-singh112/cp-toolkit/blob/main/LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/akash-singh112/cp-toolkit/blob/main/LICENSE) file for details.
