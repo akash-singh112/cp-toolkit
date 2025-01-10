@@ -1,0 +1,91 @@
+.darktheme {
+    color: white;
+    transition: 0.1s ease-in, 0.1s ease-out;
+  }
+  
+  .footer-border-white {
+    border-top: 3px solid white;
+  }
+
+  #codeFile,#inputFile {
+    display: none;
+  }
+  
+  #codeFileLabel,#inputFileLabel {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #codeFileLabel:hover,#inputFileLabel:hover {
+    background-color: #45a049;
+  }
+  
+  #codeFileLabel:focus-visible,#inputFileLabel:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+  }
+  
+  #codeFile + label::after {
+    content: 'Select Code File';
+  }
+
+  #inputFile + label::after {
+    content: 'Select Input File (input.txt)';
+  }
+
+  .spinner1 {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .fb67 {
+    display: flex;
+    gap: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .runcodebtn {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+  }
+  
+  .runcodebtn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+  }
+  
+  .runcodebtn:active {
+    background-color: #004085;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+    transform: translateY(2px);
+  }
+  
+  .runcodebtn:focus {
+    outline: none;
+  }

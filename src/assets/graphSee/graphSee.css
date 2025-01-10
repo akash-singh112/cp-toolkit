@@ -1,0 +1,126 @@
+  .darktheme {
+      color: white;
+      transition: 0.1s ease-in, 0.1s ease-out;
+  }
+
+  .footer-border-white {
+      border-top: 3px solid white;
+  }
+
+  .n-input {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #0074D9;
+      border-radius: 5px;
+      outline: none;
+      width: 100px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+  }
+    
+  .n-input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+    
+  .n-input::placeholder {
+      color: #aaa;
+      font-style: italic;
+  }
+
+  .fb1,.fb2 {
+      display: flex;
+      gap: 10px;
+  }
+
+  .fb2 {
+    flex-wrap: wrap;
+  }
+
+  #seeForm {
+      padding: 20px;
+  }
+
+  #edges-input {
+      width: 30%;
+      padding: 10px;
+      font-size: 14px;
+      border: 2px solid #0074D9;
+      border-radius: 5px;
+      outline: none;
+      resize: vertical;
+      box-sizing: border-box;
+      min-height: 100px;
+      transition: border-color 0.3s ease;
+  }
+    
+  #edges-input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+    
+  #edges-input::placeholder {
+      color: #aaa;
+      font-style: italic;
+  }
+
+  .btn11 {
+    background-color: #0074D9;
+    color: white;
+    border: none; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  input[type='checkbox'] {
+    cursor: pointer;
+  }
+
+  .btn11:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+  }
+
+  .btn11:active {
+    background-color: #00408d;
+    transform: translateY(1px);
+  }
+
+  .btn11:focus {
+    outline: none;
+  }
+
+  .seeGraph {
+    border: 2px solid black;
+    width: 70%;
+    height: 500px;
+    margin: 30px;
+  }
+
+  .flexbox69 {
+    display: flex;
+    gap: 20px;
+  }
+
+  #spc {
+    flex: 1 0 100%;
+  }
+
+  #Node {
+    width: 100px;               /* Adjust width as needed */
+    height: 30px;              /* Adjust height */
+    font-size: 16px;           /* Text size */
+    padding: 5px;              /* Space inside the input */
+    text-align: center;        /* Center the number inside */
+    border: 1px solid #ccc;    /* Light border color */
+    border-radius: 4px;        /* Rounded corners */
+    outline: none;             /* Remove outline when focused */
+    transition: border-color 0.3s; /* Smooth transition for border */
+  }
+  
+  #Node:focus {
+    border-color: #0074D9;     /* Change border color on focus */
+  }

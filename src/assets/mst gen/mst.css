@@ -1,0 +1,8 @@
+.darktheme {
+    color: white;
+    transition: 0.1s ease-in, 0.1s ease-out;
+  }
+  
+  .footer-border-white {
+    border-top: 3px solid white;
+  }
