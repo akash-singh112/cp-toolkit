@@ -3,6 +3,9 @@ import cors from 'cors'
 import fs from 'fs'
 import {exec} from 'child_process'
 import process from 'process'
+import dotenv from 'dotenv'
+
+dotenv.config({path: '../../../.env'});
 
 const app = express();
 
@@ -40,6 +43,6 @@ app.post('/exec-time',async (req,res)=>{
     
 });
 
-app.listen(8800,()=>{
-    console.log(`Server is listening to port ${8800}`);
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is listening to port ${process.env.PORT}`);
 })

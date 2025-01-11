@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import './navbar.css'
 import { Link } from "react-router-dom";
+import { ToggleButton } from "./toggleButton";
 
 function Navbar ({darkMode,toggleDarkMode}) {
     return (
@@ -8,7 +9,7 @@ function Navbar ({darkMode,toggleDarkMode}) {
             <div className="logo">CP Toolkit 🚀</div>
             <Link to='/' className='atags' >Home</Link>
             <Link to='/about' className='atags' >About</Link>
-            <button className="toggle-mode" onClick={toggleDarkMode}>{darkMode ? "🌙" : "🌞"}</button>
+            <ToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
         </nav>
     )
 }

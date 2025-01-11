@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import Navbar from "../../../utilities/navbar/navbar";
 import Footer from "../../../utilities/footer/footer";
 import './factors.css'
+import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function Factorization (){
     const [darkMode,setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')));
@@ -162,7 +163,7 @@ export function Factorization (){
             <header className="header">
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
             </header>
-            <div className='heroTopic' style={{color:'black'}}>Factorization ✨</div>
+            <HeroTopic Topic='Factorization'/>
             <div className="c12">
                 <p>For N &lt;= 10<sup>6</sup>, Time Complexity is O(log N)</p>
                 <p>For 10<sup>6</sup> &lt; N &lt;= 10<sup>14</sup>, Time Complexity is O(&radic;N)</p>

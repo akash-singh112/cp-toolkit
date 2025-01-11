@@ -4,13 +4,21 @@ import Footer from "../../../utilities/footer/footer";
 import './codeSnippets.css'
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { pbds,binpow,segTree,DSU,orQueries } from "./codeText";
+import { snippetsArray } from "./codeText";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { FaClipboard,FaClipboardCheck } from "react-icons/fa6";
+import { FaClipboard,FaClipboardCheck,FaAngleDown,FaAngleUp } from "react-icons/fa6";
+import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function CodeSnippets (){
     const [darkMode,setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')));
     const [copySuccess,setCopySuccess] = useState(false);
+    const [openIndex, setOpenIndex] = useState(null);
+    const [arrow,setArrow] = useState(1);// 1 = down , 0 = up
+
+    const handleToggle = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+        setArrow(!arrow);
+    };
 
     useEffect(()=> {
         const statusDark = JSON.parse(localStorage.getItem('darkMode'));
@@ -31,6 +39,7 @@ export function CodeSnippets (){
             header.classList.add('darktheme');
             footer.classList.add('darktheme');
             footer.classList.add('footer-border-white');
+            
             snippetHeaders.forEach((snippetHeader) => {
                 snippetHeader.classList.add('darktheme');
             });
@@ -66,61 +75,30 @@ export function CodeSnippets (){
             <header className="header">
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
             </header>
-            <h3 className="snippetHeader">PBDS Set Template:</h3>
-            <div className="code-container">
-                <CopyToClipboard text={pbds} onCopy={handleCopy}>
-                    <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
-                    {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
-                    </button>
-                </CopyToClipboard>
-                <SyntaxHighlighter class language="cpp" style={materialDark} className='codes'>
-                    {pbds}
-                </SyntaxHighlighter>
-            </div>
-            <h3 className="snippetHeader">Binary Exponentiation Iterative:</h3>
-            <div className="code-container">
-                <CopyToClipboard text={binpow} onCopy={handleCopy}>
-                    <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
-                    {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
-                    </button>
-                </CopyToClipboard>
-                <SyntaxHighlighter class language="cpp" style={materialDark} className='codes'>
-                    {binpow}
-                </SyntaxHighlighter>
-            </div>
-            <h3 className="snippetHeader">Segment Tree for maximum in a range:</h3>
-            <div className="code-container">
-                <CopyToClipboard text={segTree} onCopy={handleCopy}>
-                    <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
-                    {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
-                    </button>
-                </CopyToClipboard>
-                <SyntaxHighlighter class language="cpp" style={materialDark} className='codes'>
-                    {segTree}
-                </SyntaxHighlighter>
-            </div>
-            <h3 className="snippetHeader">DSU:</h3>
-            <div className="code-container">
-                <CopyToClipboard text={DSU} onCopy={handleCopy}>
-                    <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
-                    {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
-                    </button>
-                </CopyToClipboard>
-                <SyntaxHighlighter class language="cpp" style={materialDark} className='codes'>
-                    {DSU}
-                </SyntaxHighlighter>
-            </div>
-            <h3 className="snippetHeader">OR subarray Queries:</h3>
-            <div className="code-container">
-                <CopyToClipboard text={orQueries} onCopy={handleCopy}>
-                    <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
-                    {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
-                    </button>
-                </CopyToClipboard>
-                <SyntaxHighlighter class language="cpp" style={materialDark} className='codes'>
-                    {orQueries}
-                </SyntaxHighlighter>
-            </div>
+            <HeroTopic Topic='Code Snippets Repository🗃️'/>
+            <br />
+            {snippetsArray.map((element,index) => (
+                <div className="code-container" key={index}>
+                    <div className="dropdown-header" style={{color: (darkMode ? 'white' : 'black')}} onClick={() => handleToggle(index)}>
+                        <div className="fb55">
+                            <div>{element.header}</div>
+                            <div>{arrow==1 ? <FaAngleDown/> : <FaAngleUp/>}</div>
+                        </div>
+                    </div>
+                    <div className={`dropdown-content ${openIndex === index ? 'open' : ''}`}>
+                        <div className="code-snippet-container">
+                            <CopyToClipboard text={element.content} onCopy={handleCopy}>
+                                <button className={`copy-button ${copySuccess ? 'copy-button-copied' : ''}`}>
+                                {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
+                                </button>
+                            </CopyToClipboard>
+                            <SyntaxHighlighter language="cpp" style={materialDark} className="codes">
+                                {element.content}
+                            </SyntaxHighlighter>
+                        </div>
+                    </div>
+                </div>
+            ))}
             <Footer/>
         </>
     )

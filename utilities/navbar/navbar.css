@@ -2,3 +2,14 @@
     color: white;
     transition: 0.1s ease-in, 0.1s ease-out;
   }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .navbar > * {
+    padding: 15px;
+    padding-left: 30px;
+  }

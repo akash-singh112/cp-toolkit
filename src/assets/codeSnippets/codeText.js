@@ -1,4 +1,4 @@
-export const pbds = `template <class T> using oset = tree<T, null_type,
+const pbds = `template <class T> using oset = tree<T, null_type,
 less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //defining template for pbds multiset
 template <class T> using oset_d = tree<T, null_type,
@@ -7,10 +7,9 @@ less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //returns the element present at index k if present in set(index as if the set was an array)
 //s.order_of_key(ele):
 //return index of element 'ele' if present in set
-//always use priority queue for dijkstra(not set)
 //for pbds multiset, lower and upper bound are switched`;
 
-export const binpow = `int binpow(int a,int b){
+const binpow = `int binpow(int a,int b){
 	int ans=1;
 	while(b){
 		if(b&1)ans=(ans*a);
@@ -20,7 +19,7 @@ export const binpow = `int binpow(int a,int b){
 	return ans;
 }`
 
-export const segTree = `/find max in log(N)
+const segTree = `//find max in log(N)
 //segment tree
 const int N=1e5;
 vi seg(4*N,0);
@@ -54,7 +53,7 @@ int rmq(vi &a,int idx,int low,int high,int l,int r){
 	return max(leftnode,rightnode);
 }`;
 
-export const orQueries = `//precomputation takes O(bits*n) time
+const orQueries = `//precomputation takes O(bits*n) time
 const int N=1e5+10;
 vi a;
 //int p[bits][N];
@@ -81,7 +80,7 @@ int rq(vvi &p,int l,int r){
 	return ans;
 }`
 
-export const DSU = `struct DSU{
+const DSU = `struct DSU{
 	vi s,par;
 	DSU(int n){
 		s.resize(n);
@@ -107,3 +106,11 @@ export const DSU = `struct DSU{
 		return 1;
 	}
 };`;
+
+export const snippetsArray = [
+	{header:"PBDS Set Template",content:pbds},
+	{header:"Binary Exponentiation Iterative",content:binpow},
+	{header:"Segment Tree for maximum in a range",content:segTree},
+	{header:"DSU",content:DSU},
+	{header:"OR subarray Queries",content:orQueries}
+];

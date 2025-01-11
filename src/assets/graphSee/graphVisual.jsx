@@ -4,6 +4,7 @@ import Footer from "../../../utilities/footer/footer";
 import './graphSee.css'
 import CytoscapeComponent from "react-cytoscapejs";
 import Heap from 'heap'
+import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function GraphVisual (){
     const [darkMode, setDarkMode] = useState(() => {
@@ -277,7 +278,7 @@ export function GraphVisual (){
             <header className="header">
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
             </header>
-            <div className='heroTopic' style={{color:'black'}}>Graph Visualiser ✨</div>
+            <HeroTopic Topic='Graph Visualiser📈'/>
             <div className="flexbox69">
                 <form id='seeForm' onSubmit={handleSubmit}>
                     <br />
@@ -333,9 +334,9 @@ export function GraphVisual (){
                         </button>
                         <p id="spc">Shortest Path Calculator</p>
                         <input type="number" id="Node" placeholder="SOURCE"
-                        value={source} onChange={e => setSource(Number(e.target.value))}/>
+                        value={source==-1 ? '' : source} onChange={e => setSource(Number(e.target.value))}/>
                         <input type="number" id="Node" placeholder="TARGET"
-                        value={target} onChange={e => setTarget(Number(e.target.value))}/>
+                        value={target==-1 ? '' : target} onChange={e => setTarget(Number(e.target.value))}/>
                         <button className="btn11" onClick={handleShortestPathClick}>
                             <span>Calculate</span>
                         </button>

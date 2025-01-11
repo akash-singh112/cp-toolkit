@@ -3,6 +3,7 @@ import Navbar from "../../../utilities/navbar/navbar";
 import Footer from "../../../utilities/footer/footer";
 import './runCalc.css'
 import { getExecutionTime } from "./api";
+import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function RunTimeCalculator (){
     const [darkMode,setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')));
@@ -132,7 +133,7 @@ export function RunTimeCalculator (){
             <header className="header">
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
             </header>
-            <div className='heroTopic' style={{color:'black'}}>Runtime Calculator ✨</div>
+            <HeroTopic Topic='Runtime Calculator ⌚'/>
             <div className="fb67">
                 <input type="file" id="codeFile" onChange={handleCodeFileChange}/>
                 <label htmlFor="codeFile" id="codeFileLabel"></label>
