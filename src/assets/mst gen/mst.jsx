@@ -60,7 +60,7 @@ export function MST (){
         while(!heap.empty()){
             let u = heap.pop()[1];
             if(inMST[u]==true)continue;
-            inMST = true;
+            inMST[u] = true;
             for(let [v,wt] of adj[u]){
                 if(inMST[v]==true)continue;
                 if(key[v] > wt){
@@ -87,6 +87,9 @@ export function MST (){
         }));
 
         const cytoelements = [...nodesArray,...newEdges]
+
+        console.log(cytoelements);
+        
         return {cytoelements,minSum};
     }
 
