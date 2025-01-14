@@ -21,10 +21,16 @@ body {
     color: black;
   }
   
+  .atags.darktheme:hover{
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+    color: #98FF98;
+  }
+
   .atags:hover{
     cursor: pointer;
     transition: 150ms ease-in-out;
-    color: #b19cd9;
+    color: #4caf50;
   }
   
   .heroTopic {

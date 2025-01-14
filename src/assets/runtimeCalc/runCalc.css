@@ -12,15 +12,19 @@
   }
   
   #codeFileLabel,#inputFileLabel {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     background-color: #4CAF50;
     color: #fff;
     padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
+    font-size: 14px;
+    border-radius: 30px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 170px;
+    text-align: center;
   }
   
   #codeFileLabel:hover,#inputFileLabel:hover {
@@ -37,7 +41,7 @@
   }
 
   #inputFile + label::after {
-    content: 'Select Input File (input.txt)';
+    content: 'Select Input File';
   }
 
   .spinner1 {
@@ -60,12 +64,13 @@
     gap: 20px;
     margin-left: 20px;
     margin-top: 20px;
+    align-items: center;
   }
 
   .runcodebtn {
     background-color: #007bff;
     color: white;
-    font-size: 16px;
+    font-size: 13px;
     padding: 12px 24px;
     border-radius: 50px;
     border: none;
@@ -74,6 +79,7 @@
     text-transform: uppercase;
     font-weight: bold;
     outline: none;
+    width: 210px;
   }
   
   .runcodebtn:hover {

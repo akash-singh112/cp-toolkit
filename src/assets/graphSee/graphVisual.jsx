@@ -3,8 +3,7 @@ import Navbar from "../../../utilities/navbar/navbar";
 import Footer from "../../../utilities/footer/footer";
 import './graphSee.css'
 import CytoscapeComponent from "react-cytoscapejs";
-import Heap from 'heap'
-import HeroTopic from "../../../utilities/hero/heroTopic";
+import Heap from 'heap';
 
 export function GraphVisual (){
     const [darkMode, setDarkMode] = useState(() => {
@@ -276,23 +275,23 @@ export function GraphVisual (){
       return (
         <>
             <header className="header">
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='Graph Visualiser'/>
             </header>
-            <HeroTopic Topic='Graph Visualiser📈'/>
             <div className="flexbox69">
                 <form id='seeForm' onSubmit={handleSubmit}>
                     <br />
-                    Number of Nodes (n):
+                    V :
                     <input
                         className='n-input'
                         type="number"
-                        value={nodes}
+                        value={nodes<=0 ? '' : nodes}
                         onChange={(e) => setNodes(Number(e.target.value))} required/>
+                    <br />
                     <br />
                     <div className="fb1">
                         <span className="info">
-                            <p>Edges: </p>
-                            <p>Format is u v weight</p>
+                            <p>E: </p>
+                            <p>(u,v,wt)</p>
                         </span>
                         <textarea
                             id="edges-input"

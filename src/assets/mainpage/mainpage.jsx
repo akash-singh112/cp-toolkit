@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 import Navbar from '../../../utilities/navbar/navbar.jsx';
 import { findGCD,findLCM } from '../../../utilities/features/feature.js';
 import { useNavigate } from 'react-router-dom';
-import HeroTopic from '../../../utilities/hero/heroTopic.jsx';
+// import HeroTopic from '../../../utilities/hero/heroTopic.jsx';
 
 export function MainPage() {
   const [darkMode,setDarkMode] = useState(true);
@@ -113,10 +113,10 @@ export function MainPage() {
   return (
     <>
       <header className="header">
-          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='Choose a toolkit from your arsenal'/>
       </header>
       {/* <div className='heroTopic' style={{color:'black'}}>Select your use case ✨</div> */}
-      <HeroTopic Topic='Choose a toolkit from your arsenal'/>
+      {/* <HeroTopic Topic='Choose a toolkit from your arsenal'/> */}
       <ul className='itemsList'>
         <li><div className='topicAll atags' onClick={()=> handleNavigate('/fact')}>Factorization-related problems</div></li>
         <li id='special'>

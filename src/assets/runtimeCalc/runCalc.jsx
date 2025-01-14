@@ -3,15 +3,17 @@ import Navbar from "../../../utilities/navbar/navbar";
 import Footer from "../../../utilities/footer/footer";
 import './runCalc.css'
 import { getExecutionTime } from "./api";
-import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function RunTimeCalculator (){
     const [darkMode,setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')));
     const [codeText,setCodeText] = useState("");
     const [inputText,setInputText] = useState("");
-    const [uploadSuccess,setUploadSuccess] = useState(false);
+    const [CodeFileUploadSuccess,setCodeFileUploadSuccess] = useState(false);
+    const [InputFileUploadSuccess,setInputFileUploadSuccess] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [runtime,setRuntime] = useState(-1);
+    const [codefileName,setCodefileName] = useState('');
+    const [inputfileName,setInputfileName] = useState('');
 
     useEffect(()=> {
         const statusDark = JSON.parse(localStorage.getItem('darkMode'));
@@ -68,7 +70,8 @@ export function RunTimeCalculator (){
         e.preventDefault();
 
         setIsLoading(true);
-        setUploadSuccess(false);
+        setCodeFileUploadSuccess(false);
+        setInputFileUploadSuccess(false);
 
         try {
             const res = await getExecutionTime(codeText,inputText);
@@ -85,7 +88,7 @@ export function RunTimeCalculator (){
     const handleCodeFileChange = (e) => {
         e.preventDefault();
         
-        setUploadSuccess(false);
+        setCodeFileUploadSuccess(false);
 
         setIsLoading(true);
         const file = e.target.files[0];
@@ -95,17 +98,17 @@ export function RunTimeCalculator (){
         };
         reader.readAsText(file);
 
-        setTimeout(() => {
-            setIsLoading(false);
-            setUploadSuccess(true);
-            e.target.value = null;
-        }, 1000);
+        // Ideally, this will take time after deployment so the loading amination is imp
+        setIsLoading(false);
+        setCodeFileUploadSuccess(true);
+        setCodefileName(file.name);
+        e.target.value = null;
     }
 
     const handleInputFileChange = (e) => {
         e.preventDefault();
         
-        setUploadSuccess(false);
+        setInputFileUploadSuccess(false);
 
         setIsLoading(true);
         const file = e.target.files[0];
@@ -115,11 +118,10 @@ export function RunTimeCalculator (){
         };
         reader.readAsText(file);
 
-        setTimeout(() => {
-            setIsLoading(false);
-            setUploadSuccess(true);
-            e.target.value = null;
-        }, 1000);
+        setIsLoading(false);
+        setInputFileUploadSuccess(true);
+        setInputfileName(file.name);
+        e.target.value = null;
     }
 
     useEffect(() => {
@@ -131,15 +133,37 @@ export function RunTimeCalculator (){
     return (
         <>
             <header className="header">
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='Runtime Calculator ⌚'/>
             </header>
-            <HeroTopic Topic='Runtime Calculator ⌚'/>
             <div className="fb67">
                 <input type="file" id="codeFile" onChange={handleCodeFileChange}/>
                 <label htmlFor="codeFile" id="codeFileLabel"></label>
+                <div className="fileName" style={{color: darkMode ? 'white' : 'black'}}>
+                    {codefileName ? `Selected: ${codefileName}` : 'No Code File selected ❌'}
+                </div>
+                {CodeFileUploadSuccess && (
+                    <div style={{color: 'green' }}>
+                        <p style={{marginLeft: '20px', color: darkMode ? 'white' : 'green'}}>✅ File uploaded successfully!</p>
+                    </div>
+                )}
+            </div>
+            <div className="fb67">
                 <input type="file" id="inputFile" onChange={handleInputFileChange}/>
                 <label htmlFor="inputFile" id="inputFileLabel"></label>
+                <div className="fileName" style={{color: darkMode ? 'white' : 'black'}}>
+                    {inputfileName ? `Selected: ${inputfileName}` : 'No Input File selected ❌'}
+                </div>
+                {InputFileUploadSuccess && (
+                    <div style={{ color: 'green' }}>
+                        <p style={{color: darkMode ? 'white' : 'green'}}>✅ File uploaded successfully!</p>
+                    </div>
+                )}
+            </div>
+            <div className="fb67">
                 <button className="runcodebtn" onClick={handleFileSubmission}>Calculate Runtime</button>
+                {runtime!=-1 && (
+                    <p style={{marginLeft: '20px', color: darkMode ? 'white' : 'green'}}>Runtime: {Math.trunc(runtime/30)}ms</p>
+                )}
             </div>
             <br />
             {isLoading && (
@@ -147,14 +171,6 @@ export function RunTimeCalculator (){
                     <p id="processing">Processing...</p>
                     <div className="spinner1"></div>
                 </div>
-            )}
-            {uploadSuccess && (
-                <div style={{ marginTop: '20px', color: 'green' }}>
-                <p style={{marginLeft: '20px', color: darkMode ? 'white' : 'green'}}>✅ File uploaded successfully!</p>
-                </div>
-            )}
-            {runtime!=-1 && (
-                <p style={{marginLeft: '20px', color: darkMode ? 'white' : 'green'}}>Runtime: {Math.trunc(runtime/30)}ms</p>
             )}
             <Footer/>
         </>

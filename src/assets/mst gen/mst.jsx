@@ -4,7 +4,6 @@ import Footer from "../../../utilities/footer/footer";
 import './mst.css'
 import Heap from "heap"
 import CytoscapeComponent from "react-cytoscapejs";
-import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function MST (){
     const [darkMode, setDarkMode] = useState(() => {
@@ -197,9 +196,8 @@ export function MST (){
       return (
         <>
             <header className="header">
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='MST Visualiser ✨'/>
             </header>
-            <HeroTopic Topic='MST Visualiser ✨'/>
             <div className="flexbox69">
                 <form id='seeForm' onSubmit={handleSubmit}>
                     <br />

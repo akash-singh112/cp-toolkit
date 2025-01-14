@@ -7,7 +7,6 @@ import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { snippetsArray } from "./codeText";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FaClipboard,FaClipboardCheck,FaAngleDown,FaAngleUp } from "react-icons/fa6";
-import HeroTopic from "../../../utilities/hero/heroTopic";
 
 export function CodeSnippets (){
     const [darkMode,setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')));
@@ -73,9 +72,8 @@ export function CodeSnippets (){
     return (
         <>
             <header className="header">
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='Code Snippets Repository🗃️'/>
             </header>
-            <HeroTopic Topic='Code Snippets Repository🗃️'/>
             <br />
             {snippetsArray.map((element,index) => (
                 <div className="code-container" key={index}>

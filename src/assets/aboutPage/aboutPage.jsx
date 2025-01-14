@@ -57,9 +57,8 @@ export function AboutPage (){
     return (
         <>
             <header className="header">
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} Topic='About the toolkit ✨'/>
             </header>
-            <div className='heroTopic' style={{color:'black'}}>About the toolkit ✨</div>
             <p className="otherInfo">
                 <strong>About CP Toolkit</strong><br/>
                 Welcome to CP Toolkit, your one-stop solution for enhancing your competitive programming experience. Designed with both beginners and experienced coders in mind, this toolkit aims to simplify problem-solving and boost your productivity.
