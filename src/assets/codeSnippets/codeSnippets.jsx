@@ -90,7 +90,11 @@ export function CodeSnippets (){
                                 {copySuccess ? <FaClipboard /> : <FaClipboardCheck />}
                                 </button>
                             </CopyToClipboard>
-                            <SyntaxHighlighter language="cpp" style={materialDark} className="codes">
+                            <SyntaxHighlighter
+                            language="cpp" 
+                            style={materialDark}
+                            className="codes"
+                            >
                                 {element.content}
                             </SyntaxHighlighter>
                         </div>
