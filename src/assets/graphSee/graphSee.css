@@ -78,9 +78,30 @@
     transition: background-color 0.3s, transform 0.2s;
   }
 
-  input[type='checkbox'] {
-    cursor: pointer;
-  }
+  .spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10px;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn11.loading .spinner {
+    display: block;
+}
+
+.btn11.loading span {
+    visibility: hidden;
+}
 
   .btn11:hover {
     background-color: #005bb5;

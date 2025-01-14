@@ -23,13 +23,16 @@ A powerful toolkit built for competitive programmers to enhance their workflow a
 ## Screenshots
 
 ### Home Page with Features
-![Welcome Page](./utilities/images/Home%20Screen.png)
+![Welcome Page](./utilities/images/mainPage.png)
 
 ### Graph Visualiser
 ![Welcome Page](./utilities/images/GraphSee.png)
 
 ### Runtime Calculator (For C++)
-![Welcome Page](./utilities/images/runTime.png)
+![Welcome Page](./utilities/images/runCalc.png)
+
+### Code Snippets (For C++)
+![Welcome Page](./utilities/images/codeSee.png)
 
 ---
   

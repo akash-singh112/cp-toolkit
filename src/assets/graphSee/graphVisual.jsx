@@ -21,12 +21,7 @@ export function GraphVisual (){
     const [source,setSource] = useState(-1);
     const [target,setTarget] = useState(-1);
     const [ShortestPath,setShortestPath] = useState(-22);
-
-    function dbg(obj) {
-        Object.entries(obj).forEach(([key, value]) => {
-          console.log(`${key}: ${value}`);
-        });
-    }
+    const [loading,setLoading] = useState(false);
 
     function Dijikstra (adj,source,target) {
         let minheap = new Heap((a,b)=> a[0]-b[0]);
@@ -129,12 +124,12 @@ export function GraphVisual (){
             newEdges.push({ data: { source: from, target: to, label: weight } });
         };
 
-        dbg({errorCode});
-
         if(errorCode!=-1){
             handleErrorCode(errorCode);
             return;
         }
+
+        setLoading(true);
 
         const nodesArray = Array.from({ length: nodes }, (_, i) => ({
             data: { id: isZeroIndexed ? i : i + 1 },
@@ -230,6 +225,7 @@ export function GraphVisual (){
         if (cyRef.current) {
             cyRef.current.layout({name: 'grid'}).run();
         }
+        setLoading(false);
     },[elements])
 
     useEffect(()=> {
@@ -327,7 +323,7 @@ export function GraphVisual (){
                                 onChange={(e) => setWeighted(e.target.checked)}
                             />
                         </div>
-                        <button className="btn11" type="submit">
+                        <button className={`btn11 ${loading ? 'loading' : ''}`} type="submit">
                             <span>Visualise</span>
                             <div className="spinner"></div>
                         </button>
